@@ -1,0 +1,204 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>OKF 工具站 | Open Knowledge Format 生成器、验证器与部署指南</title>
+    <meta
+      name="description"
+      content="OKF 工具站帮助网站、文档和知识库生成 Open Knowledge Format bundle，校验 OKF v0.1 Markdown，查看 OKF Score，并部署到 /okf/ 目录。"
+    >
+    <link rel="canonical" href="https://szy130github.github.io/okf-github-pages/">
+    <meta property="og:title" content="OKF 工具站">
+    <meta
+      property="og:description"
+      content="生成、验证并部署 Open Knowledge Format bundle，让网站更容易被 AI agent 读取、引用和遍历。"
+    >
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://szy130github.github.io/okf-github-pages/">
+    <meta property="og:image" content="assets/okf-home-desktop.png">
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="https://openknowledgeformat.tools">OKF 工具站</a>
+      <nav aria-label="页面导航">
+        <a href="#features">功能</a>
+        <a href="#use-cases">使用场景</a>
+        <a href="#screenshots">截图</a>
+        <a href="#changelog">更新记录</a>
+        <a href="#faq">FAQ</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div>
+          <p class="eyebrow">Open Knowledge Format tools</p>
+          <h1>把网站内容整理成 AI 可读取的 OKF 知识包</h1>
+          <p class="lead">
+            OKF 工具站提供 Open Knowledge Format 生成器、验证器、OKF Score 和部署指南，帮助网站、文档站和知识库把公开内容整理成可遍历、可引用的 Markdown bundle。
+          </p>
+          <p class="sublead">
+            这个 GitHub Pages 页面是静态介绍页。正式工具、在线生成和在线验证请访问主站。
+          </p>
+          <div class="actions">
+            <a class="button" href="https://openknowledgeformat.tools">访问 OKF 工具站</a>
+            <a class="button secondary" href="https://openknowledgeformat.tools/open-knowledge-format-generator">打开 OKF 生成器</a>
+          </div>
+        </div>
+        <aside class="signal-panel" aria-label="OKF 概念示例">
+          <strong>一个 OKF concept 文件通常长这样</strong>
+          <pre>---
+type: Web Page
+title: Product Docs
+description: AI-readable product documentation.
+resource: https://example.com/docs
+---
+
+# Summary
+
+This page explains the product docs, target users,
+main workflows, and source citation.</pre>
+        </aside>
+      </section>
+
+      <section class="band" id="features">
+        <p class="eyebrow">功能说明</p>
+        <h2>从 sitemap 到 /okf/index.md 的完整路径</h2>
+        <p class="section-copy">
+          OKF 的价值不只是多放几个 Markdown 文件，而是让 AI agent 可以先读索引，再按概念文件逐步展开上下文。工具站把生成、校验、评分和部署说明放在同一条工作流里。
+        </p>
+        <div class="grid">
+          <article class="card">
+            <span class="tag">Generator</span>
+            <h3>OKF 生成器</h3>
+            <p>输入 sitemap.xml 或页面 URL 列表，生成 `index.md`、`log.md` 和 `concepts/*.md`，并提供 zip 下载。</p>
+          </article>
+          <article class="card">
+            <span class="tag">Validator</span>
+            <h3>OKF 验证器</h3>
+            <p>校验 Markdown frontmatter、必填 `type` 字段、内部链接、描述缺失和内容过薄等问题。</p>
+          </article>
+          <article class="card">
+            <span class="tag">Score</span>
+            <h3>OKF Score</h3>
+            <p>把结构完整度、链接连通性和内容覆盖度合并成 0-100 分，方便截图、对比和持续优化。</p>
+          </article>
+          <article class="card">
+            <span class="tag">Deploy</span>
+            <h3>部署指南</h3>
+            <p>告诉你如何把生成文件发布到 `/okf/`，并通过 `https://site.com/okf/index.md` 验证是否可访问。</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="band alt" id="use-cases">
+        <p class="eyebrow">使用场景</p>
+        <h2>谁应该给站点发布 OKF bundle</h2>
+        <div class="grid two">
+          <article class="card">
+            <h3>站长与独立产品</h3>
+            <p>把产品页、定价页、帮助文档和更新记录整理成结构化知识包，让 AI agent 更容易找到准确入口。</p>
+          </article>
+          <article class="card">
+            <h3>SEO / GEO 从业者</h3>
+            <p>用 OKF Score 检查 AI-readable 内容质量，发现缺失描述、薄内容、孤立概念和断开的 Markdown 链接。</p>
+          </article>
+          <article class="card">
+            <h3>开发者与文档团队</h3>
+            <p>把 docs、runbook、API 页面和知识库导出成可版本管理的 Markdown，减少 agent 直接猜页面结构的成本。</p>
+          </article>
+          <article class="card">
+            <h3>需要外链说明页的项目</h3>
+            <p>像当前 GitHub Pages 页一样，用静态页面解释项目用途，展示截图，并把访问者导向真正可交互的工具站。</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="band" id="screenshots">
+        <p class="eyebrow">真实截图</p>
+        <h2>工具站界面预览</h2>
+        <p class="section-copy">
+          以下截图来自当前 OKF 工具站的验证资料，展示了首页、生成器、报告和部署检查，而不是占位图。
+        </p>
+        <div class="screenshot-grid">
+          <figure class="screenshot">
+            <img src="assets/okf-home-desktop.png" alt="OKF 工具站首页展示 Open Knowledge Format 介绍和工具入口">
+            <figcaption>首页：解释 Open Knowledge Format，并在首屏提供生成和验证入口。</figcaption>
+          </figure>
+          <figure class="screenshot">
+            <img src="assets/generator-preview-desktop.png" alt="OKF 生成器展示 sitemap 输入、预览和生成结果">
+            <figcaption>生成器：从 sitemap 或 URL 列表生成 OKF bundle，并预览概念文件。</figcaption>
+          </figure>
+          <figure class="screenshot">
+            <img src="assets/validator-report-desktop.png" alt="OKF 验证报告展示分数、错误、警告和修复建议">
+            <figcaption>验证报告：用 OKF Score 和 Top fixes 告诉用户下一步应该修什么。</figcaption>
+          </figure>
+          <figure class="screenshot">
+            <img src="assets/p0-generator-deployment-check-desktop.png" alt="OKF 部署检查展示发布到 /okf/ 后的验证结果">
+            <figcaption>部署检查：确认公开站点的 `/okf/index.md` 是否可访问并通过校验。</figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <section class="band alt" id="changelog">
+        <p class="eyebrow">更新记录</p>
+        <h2>项目近期变化</h2>
+        <div class="timeline">
+          <article>
+            <span class="date">2026-06-20</span>
+            <h3>发布 GitHub Pages 外链介绍页</h3>
+            <p>新增静态介绍页，包含 OKF 功能说明、使用场景、真实截图、更新记录和正式工具站外链。</p>
+          </article>
+          <article>
+            <span class="date">2026-06-17</span>
+            <h3>发布 OKF 工具站首版</h3>
+            <p>上线 OKF 生成器、验证器、OKF Score、badge、分享报告和 `/okf/` 部署工作流。</p>
+          </article>
+          <article>
+            <span class="date">2026-06-17</span>
+            <h3>发布本站自己的 OKF bundle</h3>
+            <p>在正式站点公开 `/okf/index.md` 和 `/llms.txt`，用自身项目作为 OKF 示例。</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="band" id="faq">
+        <p class="eyebrow">FAQ</p>
+        <h2>常见问题</h2>
+        <div class="faq">
+          <details open>
+            <summary>这个 GitHub Pages 页面和正式 OKF 工具站是什么关系？</summary>
+            <p>GitHub Pages 页面是静态外链介绍页，用于说明 OKF 工具站的价值和入口；正式生成、验证、报告和 API 能力仍在 `https://openknowledgeformat.tools`。</p>
+          </details>
+          <details>
+            <summary>为什么不把完整工具站部署到 GitHub Pages？</summary>
+            <p>当前工具站使用 Next.js API Route 来抓取 sitemap、生成 zip、验证 OKF 和生成报告。GitHub Pages 只能托管静态文件，不适合直接运行这些动态能力。</p>
+          </details>
+          <details>
+            <summary>OKF 和 llms.txt 有什么区别？</summary>
+            <p>`llms.txt` 更像给模型的站点阅读入口，OKF 更像可遍历的 Markdown 知识包。两者可以同时存在：用 `llms.txt` 指向 `/okf/index.md`。</p>
+          </details>
+          <details>
+            <summary>我应该从哪里开始？</summary>
+            <p>如果你的网站还没有 OKF bundle，先打开生成器输入 sitemap；如果你已经有 Markdown bundle，先用验证器检查分数和修复建议。</p>
+          </details>
+        </div>
+      </section>
+
+      <section class="band cta">
+        <div>
+          <p class="eyebrow">下一步</p>
+          <h2>为你的网站生成第一版 OKF bundle</h2>
+          <p>从 sitemap 开始，生成可审阅的 Markdown 文件，部署到 `/okf/`，再用验证器检查 OKF Score。</p>
+        </div>
+        <a class="button" href="https://openknowledgeformat.tools">访问 OKF 工具站</a>
+      </section>
+    </main>
+
+    <footer>
+      <p>OKF GitHub Pages 外链页。正式工具入口：<a href="https://openknowledgeformat.tools">https://openknowledgeformat.tools</a></p>
+    </footer>
+  </body>
+</html>

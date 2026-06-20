@@ -2,7 +2,7 @@
 
 这是 OKF 工具站的 GitHub Pages 静态介绍页。页面用于介绍 Open Knowledge Format 工具站、展示真实截图、记录更新，并把访问者导向正式工具站：
 
-https://openknowledgeformat.tools
+https://okftools.com
 
 ## 本地验证
 
